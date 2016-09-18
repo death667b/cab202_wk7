@@ -9,11 +9,13 @@ int main(){
 
     DDRF = DDRF & 0b11011111;
     while(1){
-        _delay_ms(500);
-        PORTB = PORTB | 0b00000100;
+        if((PINF  >> 5) & 0b1 ){
 
-        _delay_ms(500);
-        PORTB = PORTB & 0b00000000;
+            PORTB = PORTB | 0b00000100;
+
+        } else {
+        	PORTB = PORTB & ~0b00000100;
+        }
     }
 return 0;
 }
